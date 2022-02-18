@@ -1,0 +1,67 @@
+<div class="d-flex justify-content-center align-items-center flex-column">
+    <p-button class="my-3" (click)="navigateAssignments()" [label]="CONSTANTS.FOR_ALL_ASSIGNMENTS"></p-button>
+
+    <div class="d-flex justify-content-center align-items-center flex-column  card w-50">
+        <h3 class="card-title mt-3">{{CONSTANTS.ADD_ASSIGNMENT}}</h3>
+        <form class="my-3 d-flex flex-column justify-content-center align-items-center" [formGroup]="form"
+            (ngSubmit)="saveAssignment()">
+            <div class="w-75 d-flex my-1">
+                <label class="col-6" for="name">{{CONSTANTS.NAME}}</label>
+
+                <div class="d-flex flex-column">
+                    <input pInputText [(ngModel)]="assignment.name" formControlName="name" type="text" id="name"
+                        name="name" pInputText />
+                    <small *ngIf="form.controls['name'].touched &&form.controls['name'].invalid"
+                        class="p-error block">{{CONSTANTS.THIS_FIELD_IS_REQUIRED_FIELD}}</small>
+                </div>
+            </div>
+            <div class="w-75 d-flex my-1">
+                <label class="col-6" for="description">{{CONSTANTS.DESCRIPTION}}</label>
+                <div class="d-flex flex-column">
+                    <input formControlName="description" type="text" id="description" name="description" pInputText
+                        [(ngModel)]="assignment.description" />
+                </div>
+            </div>
+            <div class="w-75 d-flex my-1">
+                <label class="col-6" for="type">{{CONSTANTS.TYPE}}</label>
+                <div class="d-flex flex-column">
+                    <p-dropdown class="w-100" formControlName="assignmentTypeId" id="type" [options]="types"
+                        [(ngModel)]="assignment.assignmentTypeId" optionLabel="name" name="type" optionLabel="typeName"
+                        optionValue="id">
+                    </p-dropdown>
+                    <small *ngIf="form.controls['assignmentTypeId'].touched &&form.controls['assignmentTypeId'].invalid"
+                        class="p-error block">{{CONSTANTS.THIS_FIELD_IS_REQUIRED_FIELD}}</small>
+                </div>
+            </div>
+            <div class="w-75 d-flex my-1">
+                <label class="col-6" for="startDate">{{CONSTANTS.START_DATE}}</label>
+                <div class="d-flex flex-column">
+                    <p-calendar formControlName="startDate" name="startDate" inputId="startDate"
+                        [(ngModel)]="assignmentTime.startDate"></p-calendar>
+
+                    <small *ngIf="form.controls['startDate'].touched &&form.controls['startDate'].invalid"
+                        class="p-error block">{{CONSTANTS.THIS_FIELD_IS_REQUIRED_FIELD}}</small>
+                </div>
+            </div>
+            <div class="w-75 d-flex my-1">
+                <label class="col-6" for="endDate">{{CONSTANTS.END_DATE}}</label>
+                <div class="d-flex flex-column">
+                    <p-calendar formControlName="endDate" inputId="endDate" [(ngModel)]="assignmentTime.endDate"
+                        name="endDate">
+                    </p-calendar>
+                </div>
+            </div>
+            <div class="w-75 d-flex my-1">
+                <label class="col-6" for="isRepeat">{{CONSTANTS.REPEAT_ASSIGNMENT}}</label>
+                <div class="d-flex flex-column mt-2">
+                    <input type="checkbox" name="isRepeat" [(ngModel)]="assignment.isRepeat"
+                        formControlName="isRepeat" /> `
+                </div>
+            </div>
+            <div class="w-75 d-flex my-1 justify-content-between">
+                <p-button [disabled]="form.invalid||!form.touched" type="submit" [label]="CONSTANTS.SAVE"></p-button>
+                <p-button (click)="form.reset()" [label]="CONSTANTS.CLEAR"></p-button>
+            </div>
+        </form>
+    </div>
+</div>

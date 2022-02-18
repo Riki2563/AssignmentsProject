@@ -1,0 +1,23 @@
+export const CONSTANTS = {
+    ARE_YOU_SURE_UPDATE: 'האם אתה בטוח שברצונך לעדכן רשומה זו?',
+    ARE_YOU_SURE_DELETE: 'האם אתה בטוח שברצונך למחוק רשומה זו?',
+    DELETE: 'מחיקה',
+    UPDATE: 'עידכון',
+    IS_ENDED: 'הסתימה',
+    IS_REPEAT: 'האם חוזרת',
+    END_DATE: 'תאריך סיום',
+    START_DATE: 'תאריך התחלה',
+    TYPE: 'סוג',
+    DESCRIPTION: 'תיאור',
+    NAME: 'שם',
+    CODE: 'קוד',
+    ASSIGNMENT_LIST: 'רשימת משימות',
+    ADD_ENTRY: 'הוספת רשומה',
+    THIS_FIELD_IS_REQUIRED_FIELD: 'שדה זה הוא שדה חובה',
+    ADD_ASSIGNMENT: 'הוספת משימה',
+    FOR_ALL_ASSIGNMENTS: 'לכל המשימות',
+    SAVE: 'שמירה',
+    REPEAT_ASSIGNMENT: 'משימה חוזרת',
+    CONFIRMATION: 'אישור',
+    CLEAR:'ניקוי'
+}
